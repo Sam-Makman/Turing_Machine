@@ -26,5 +26,20 @@ public class TuringSimTest {
 	public void acceptsTest(){
 		tSim.writeInput(new char[]{'a','b','b','a','a','b','b','a'});
 		assertEquals(true, tSim.accepts());
+		tSim = new TuringSim();
+		tSim.writeInput(new char[]{'a','a'});
+		assertEquals(true, tSim.accepts());
+		tSim = new TuringSim();
+		tSim.writeInput(new char[]{'a','b','b','a','a','b','b','a','a','b','b','a','a','b','b','a'});
+		assertEquals(true, tSim.accepts());
+	}
+	
+	@Test
+	public void failsTest(){
+		tSim.writeInput(new char[]{'a','b','a','a','b','b','a'});
+		assertEquals(false, tSim.accepts());
+		tSim = new TuringSim();
+		tSim.writeInput(new char[]{'a','b','a','a','b','b','a', 'b'});
+		assertEquals(false, tSim.accepts());
 	}
 }

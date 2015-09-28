@@ -37,10 +37,13 @@ public class TuringSim {
 		if(tape.read()==0){
 			throw new IllegalStateException();
 		}
-		return false;
+		System.out.println(tape.toString());
+		return q1(tape);
 	}
 	
 	private boolean q1(TuringTape t){
+		System.out.println("q1");
+		System.out.println(t.toString());
 		switch(t.read()){
 		case 1 :
 			t.write(3);
@@ -56,6 +59,8 @@ public class TuringSim {
 	}
 	
 	private boolean q2(TuringTape t){
+		System.out.println("q2");
+		System.out.println(t.toString());
 		switch(t.read()){
 		case 0 : 
 			t.moveLeft();
@@ -72,6 +77,8 @@ public class TuringSim {
 	}
 	
 	private boolean q3(TuringTape t){
+		System.out.println("q3");
+		System.out.println(t.toString());
 		switch(t.read()){
 		case 1 :
 			t.write(5);
@@ -87,6 +94,8 @@ public class TuringSim {
 	}
 	
 	private boolean q4(TuringTape t){
+		System.out.println("q4");
+		System.out.println(t.toString());
 		switch(t.read()){
 		case 1:
 			t.moveLeft();
@@ -112,6 +121,8 @@ public class TuringSim {
 	}
 	
 	private boolean q5(TuringTape t){
+		System.out.println("q5");
+		System.out.println(t.toString());
 		switch(t.read()){
 		case 1: 
 			t.write(3);
@@ -131,7 +142,10 @@ public class TuringSim {
 			return false;
 		}
 	}
+	
 	private boolean q6(TuringTape t){
+		System.out.println("q6");
+		System.out.println(t.toString());
 		switch(t.read()){
 		case 1:
 			t.moveRight();
@@ -149,56 +163,168 @@ public class TuringSim {
 			return false;
 		}
 	}
+	
 	private boolean q7(TuringTape t){
+		System.out.println("q7");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 1 :
+			t.write(5);
+			t.moveLeft();
+			return q4(t);
+		case 2 :
+			t.write(6);
+			t.moveLeft();
+			return q4(t);
 		default: 
 			return false;
 		}
 	}
+	
 	private boolean q8(TuringTape t){
+		System.out.println("q8");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 0:
+			t.moveRight();
+			return q9(t);
+		case 3:
+			t.moveLeft();
+			return q8(t);
+		case 4:
+			t.moveLeft();
+			return q8(t);
+		case 5:
+			t.moveLeft();
+			return q8(t);
+		case 6:
+			t.moveLeft();
+			return q8(t);
 		default: 
 			return false;
 		}
 	}
+	
 	private boolean q9(TuringTape t){
+		System.out.println("q9");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 3:
+			t.write(7);
+			t.moveRight();
+			return q10(t);
+		case 4:
+			t.write(7);
+			t.moveRight();
+			return q11(t);
 		default: 
 			return false;
 		}
 	}
+	
 	private boolean q10(TuringTape t){
+		System.out.println("q10");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 0:
+			t.moveRight();
+			return q14(t);
+		case 3: 
+			t.moveRight();
+			return q10(t);
+		case 4:
+			t.moveRight();
+			return q10(t);
+		case 5:
+			t.write(7);
+			t.moveLeft();
+			return q12(t);
+		case 7:
+			t.moveRight();
+			return q10(t);
 		default: 
 			return false;
 		}
 	}
+	
 	private boolean q11(TuringTape t){
+		System.out.println("q11");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 0:
+			t.moveRight();
+			return q14(t);
+		case 3:
+			t.moveRight();
+			return q11(t);
+		case 4:
+			t.moveRight();
+			return q11(t);
+		case 6 :
+			t.write(7);
+			t.moveLeft();
+			return q12(t);
+		case 7:
+			t.moveRight();
+			return q11(t);
 		default: 
 			return false;
 		}
 	}
+	
 	private boolean q12(TuringTape t){
+		System.out.println("q12");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 0: 
+			t.moveRight();
+			
+			return q13(t);
+		case 3: 
+			t.moveLeft();
+			
+			return q12(t);
+		case 4: 
+			t.moveLeft();
+			return q12(t);
+		case 5: 
+			t.moveLeft();
+			return q12(t);
+		case 6: 
+			t.moveLeft();
+			return q12(t);
+		case 7: 
+			t.moveLeft();
+			return q12(t);
 		default: 
 			return false;
 		}
 	}
+	
 	private boolean q13(TuringTape t){
+		System.out.println("q13");
+		System.out.println(t.toString());
 		switch(t.read()){
-
+		case 0:
+			return q14(t);
+		case 3:
+			t.write(7);
+			t.moveRight();
+			return q10(t);
+		case 4:
+			t.write(7);
+			t.moveRight();
+			return q11(t);	
+		case 7:
+			t.moveRight();
+			return q13(t);
 		default: 
 			return false;
 		}
 	}
 	private boolean q14(TuringTape t){
+		System.out.println("q14");
+		System.out.println(t.toString());
 		return true;
 	}
 	

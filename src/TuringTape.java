@@ -24,11 +24,9 @@ public class TuringTape {
 			head.prev.value = 0;
 			head.prev.next = head;
 			head = head.prev;
-			System.out.println("new left node");
 		}
 		else{
 			head = head.prev;
-			System.out.println("left node exists");
 		}
 		
 	}
@@ -39,11 +37,9 @@ public class TuringTape {
 			head.next.value = 0;
 			head.next.prev = head;
 			head = head.next;
-			System.out.println("new right node");
 		}
 		else{
 			head = head.next;
-			System.out.println("right node exists");
 		}
 		
 	}
@@ -57,6 +53,18 @@ public class TuringTape {
 		head.value = a;
 	}
 	
-	
+	public String toString(){
+		Node n = head;
+		while(n.prev != null){
+			n = n.prev;
+		}
+		String s = "";
+		while(n != null){
+			s = s + n.value;
+			n = n.next;
+		}
+		return s;
+		
+	}
 	
 	}
