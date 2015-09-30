@@ -1,6 +1,6 @@
 
 public class TuringSim {
-	TuringTape tape;
+	private TuringTape tape;
 	
 	TuringSim(){ // creates a new TuringSim
 		tape = new TuringTape();
@@ -37,13 +37,10 @@ public class TuringSim {
 		if(tape.read()==0){
 			throw new IllegalStateException();
 		}
-		System.out.println(tape.toString());
 		return q1(tape);
 	}
 	
 	private boolean q1(TuringTape t){
-		System.out.println("q1");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 1 :
 			t.write(3);
@@ -59,8 +56,6 @@ public class TuringSim {
 	}
 	
 	private boolean q2(TuringTape t){
-		System.out.println("q2");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 0 : 
 			t.moveLeft();
@@ -77,8 +72,6 @@ public class TuringSim {
 	}
 	
 	private boolean q3(TuringTape t){
-		System.out.println("q3");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 1 :
 			t.write(5);
@@ -94,8 +87,6 @@ public class TuringSim {
 	}
 	
 	private boolean q4(TuringTape t){
-		System.out.println("q4");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 1:
 			t.moveLeft();
@@ -121,8 +112,6 @@ public class TuringSim {
 	}
 	
 	private boolean q5(TuringTape t){
-		System.out.println("q5");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 1: 
 			t.write(3);
@@ -144,8 +133,6 @@ public class TuringSim {
 	}
 	
 	private boolean q6(TuringTape t){
-		System.out.println("q6");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 1:
 			t.moveRight();
@@ -165,8 +152,6 @@ public class TuringSim {
 	}
 	
 	private boolean q7(TuringTape t){
-		System.out.println("q7");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 1 :
 			t.write(5);
@@ -182,8 +167,6 @@ public class TuringSim {
 	}
 	
 	private boolean q8(TuringTape t){
-		System.out.println("q8");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 0:
 			t.moveRight();
@@ -206,8 +189,6 @@ public class TuringSim {
 	}
 	
 	private boolean q9(TuringTape t){
-		System.out.println("q9");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 3:
 			t.write(7);
@@ -223,8 +204,6 @@ public class TuringSim {
 	}
 	
 	private boolean q10(TuringTape t){
-		System.out.println("q10");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 0:
 			t.moveRight();
@@ -248,8 +227,6 @@ public class TuringSim {
 	}
 	
 	private boolean q11(TuringTape t){
-		System.out.println("q11");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 0:
 			t.moveRight();
@@ -273,8 +250,6 @@ public class TuringSim {
 	}
 	
 	private boolean q12(TuringTape t){
-		System.out.println("q12");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 0: 
 			t.moveRight();
@@ -302,8 +277,6 @@ public class TuringSim {
 	}
 	
 	private boolean q13(TuringTape t){
-		System.out.println("q13");
-		System.out.println(t.toString());
 		switch(t.read()){
 		case 0:
 			return q14(t);
@@ -323,8 +296,6 @@ public class TuringSim {
 		}
 	}
 	private boolean q14(TuringTape t){
-		System.out.println("q14");
-		System.out.println(t.toString());
 		return true;
 	}
 	
