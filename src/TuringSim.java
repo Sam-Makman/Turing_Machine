@@ -1,13 +1,13 @@
 
 public class TuringSim {
-	private TuringTape tape;
+	 TuringTape tape;
 	
 	TuringSim(){ // creates a new TuringSim
 		tape = new TuringTape();
 		
 	}
 	
-	void writeInput(char [] vals){// writes an input string to a TuringTape
+	public void writeInput(char [] vals){// writes an input string to a TuringTape
 		if(vals == null){
 			throw new NullPointerException("input string is null");
 		}
@@ -37,262 +37,311 @@ public class TuringSim {
 		if(tape.read()==0){
 			throw new IllegalStateException();
 		}
-		return q1(tape);
+		
+		int state = 1;
+		while(state >= 0 && state <= 14){
+			
+			switch(state){
+			case 0 : 
+				return false;
+			case 1:
+				state = q1(tape);
+				break;
+			case 2:
+				state = q2(tape);
+				break;
+			case 3:
+				state = q3(tape);
+				break;
+			case 4:
+				state = q4(tape);
+				break;
+			case 5:
+				state = q5(tape);
+				break;
+			case 6:
+				state = q6(tape);
+				break;
+			case 7:
+				state = q7(tape);
+				break;
+			case 8:
+				state = q8(tape);
+				break;
+			case 9:
+				state = q9(tape);
+				break;
+			case 10:
+				state = q10(tape);
+				break;
+			case 11:
+				state = q11(tape);
+				break;
+			case 12:
+				state = q12(tape);
+				break;
+			case 13:
+				state = q13(tape);
+				break;
+			case 14:
+				return true;
+			}
+			
+		}
+		return false;
 	}
 	
-	private boolean q1(TuringTape t){
+	private int q1(TuringTape t){
 		switch(t.read()){
 		case 1 :
 			t.write(3);
 			t.moveRight();
-			return q2(t);
+			return 2;
 		case 2 :
 			t.write(4);
 			t.moveLeft();
-			return q2(t);
+			return 2;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q2(TuringTape t){
+	private int q2(TuringTape t){
 		switch(t.read()){
 		case 0 : 
 			t.moveLeft();
-			return q3(t);
+			return 3;
 		case 1:
 			t.moveRight();
-			return q2(t);
+			return 2;
 		case 2: 
 			t.moveRight();
-			return q2(t);
+			return 2;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q3(TuringTape t){
+	private int q3(TuringTape t){
 		switch(t.read()){
 		case 1 :
 			t.write(5);
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		case 2 :
 			t.write(6);
 			t.moveLeft();
-			return q4(t);
+			return 4;
 			default: 
-				return false;
+				return 0;
 		}
 	}
 	
-	private boolean q4(TuringTape t){
+	private int q4(TuringTape t){
 		switch(t.read()){
 		case 1:
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		case 2:
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		case 3:
 			t.moveRight();
-			return q5(t);
+			return 5;
 		case 4:
 			t.moveRight();
-			return q5(t);
+			return 5;
 		case 5:
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		case 6:
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q5(TuringTape t){
+	private int q5(TuringTape t){
 		switch(t.read()){
 		case 1: 
 			t.write(3);
 			t.moveRight();
-			return q6(t);
+			return 6;
 		case 2: 
 			t.write(4);
 			t.moveRight();
-			return q6(t);
+			return 6;
 		case 5:
 			t.moveLeft();
-			return q8(t);
+			return 8;
 		case 6:
 			t.moveLeft();
-			return q8(t);
+			return 8;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q6(TuringTape t){
+	private int q6(TuringTape t){
 		switch(t.read()){
 		case 1:
 			t.moveRight();
-			return q6(t);
+			return 6;
 		case 2:
 			t.moveRight();
-			return q6(t);
+			return 6;
 		case 5 : 
 			t.moveLeft();
-			return q7(t);
+			return 7;
 		case 6 : 
 			t.moveLeft();
-			return q7(t);
+			return 7;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q7(TuringTape t){
+	private int q7(TuringTape t){
 		switch(t.read()){
 		case 1 :
 			t.write(5);
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		case 2 :
 			t.write(6);
 			t.moveLeft();
-			return q4(t);
+			return 4;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q8(TuringTape t){
+	private int q8(TuringTape t){
 		switch(t.read()){
 		case 0:
 			t.moveRight();
-			return q9(t);
+			return 9;
 		case 3:
 			t.moveLeft();
-			return q8(t);
+			return 8;
 		case 4:
 			t.moveLeft();
-			return q8(t);
+			return 8;
 		case 5:
 			t.moveLeft();
-			return q8(t);
+			return 8;
 		case 6:
 			t.moveLeft();
-			return q8(t);
+			return 8;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q9(TuringTape t){
+	private int q9(TuringTape t){
 		switch(t.read()){
 		case 3:
 			t.write(7);
 			t.moveRight();
-			return q10(t);
+			return 10;
 		case 4:
 			t.write(7);
 			t.moveRight();
-			return q11(t);
+			return 11;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q10(TuringTape t){
+	private int q10(TuringTape t){
 		switch(t.read()){
 		case 0:
 			t.moveRight();
-			return q14(t);
+			return 14;
 		case 3: 
 			t.moveRight();
-			return q10(t);
+			return 10;
 		case 4:
 			t.moveRight();
-			return q10(t);
+			return 10;
 		case 5:
 			t.write(7);
 			t.moveLeft();
-			return q12(t);
+			return 12;
 		case 7:
 			t.moveRight();
-			return q10(t);
+			return 10;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q11(TuringTape t){
+	private int q11(TuringTape t){
 		switch(t.read()){
 		case 0:
 			t.moveRight();
-			return q14(t);
+			return 14;
 		case 3:
 			t.moveRight();
-			return q11(t);
+			return 11;
 		case 4:
 			t.moveRight();
-			return q11(t);
+			return 11;
 		case 6 :
 			t.write(7);
 			t.moveLeft();
-			return q12(t);
+			return 12;
 		case 7:
 			t.moveRight();
-			return q11(t);
+			return 11;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q12(TuringTape t){
+	private int q12(TuringTape t){
 		switch(t.read()){
 		case 0: 
 			t.moveRight();
-			
-			return q13(t);
+			return 13;
 		case 3: 
 			t.moveLeft();
-			
-			return q12(t);
+			return 12;
 		case 4: 
 			t.moveLeft();
-			return q12(t);
+			return 12;
 		case 5: 
 			t.moveLeft();
-			return q12(t);
+			return 12;
 		case 6: 
 			t.moveLeft();
-			return q12(t);
+			return 12;
 		case 7: 
 			t.moveLeft();
-			return q12(t);
+			return 12;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	
-	private boolean q13(TuringTape t){
+	private int q13(TuringTape t){
 		switch(t.read()){
 		case 0:
-			return q14(t);
+			return 14;
 		case 3:
 			t.write(7);
 			t.moveRight();
-			return q10(t);
+			return 10;
 		case 4:
 			t.write(7);
 			t.moveRight();
-			return q11(t);	
+			return 11;	
 		case 7:
 			t.moveRight();
-			return q13(t);
+			return 13;
 		default: 
-			return false;
+			return 0;
 		}
 	}
 	private boolean q14(TuringTape t){
